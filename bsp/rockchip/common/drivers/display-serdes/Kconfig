@@ -1,0 +1,22 @@
+menuconfig RT_USING_SERDES_DISPLAY_CHIP_MAXIM
+    bool "maxim serdes device support"
+    default n
+    help
+        Enable this to be able to choose the drivers for controlling the
+        maxim serdes.
+
+if RT_USING_SERDES_DISPLAY_CHIP_MAXIM
+
+config RT_USING_SERDES_CHIP_MAXIM_MAX96752
+    bool "maxim max96752 serdes"
+    default y
+    help
+        To support maxim max96752 display serdes.
+
+config RT_USING_SERDES_CHIP_MAXIM_MAX96789
+    bool "maxim max96789 serdes"
+    default y
+    help
+        To support maxim max96789 display serdes.
+
+endif

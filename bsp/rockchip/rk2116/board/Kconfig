@@ -1,0 +1,40 @@
+menu "RT-Thread board config"
+
+config IS_FPGA
+    bool "Is FPGA Board"
+    default n
+
+choice
+    prompt "Board Type"
+    default RT_USING_BOARD_FPGA
+
+    config RT_USING_BOARD_FPGA
+        bool "Enable FPGA board"
+        select IS_FPGA
+
+    config RT_USING_BOARD_EVB1_V10
+        bool "Enable EVB1 V10 board"
+
+    config RT_USING_BOARD_EVB2_V10
+        bool "Enable EVB2 V10 board"
+
+    config RT_USING_BOARD_IOTEST_V10
+        bool "Enable IOTEST V10 board"
+
+endchoice
+
+config RT_USING_HIFI4
+    bool "Enable hifi4 driver"
+    default n
+
+    if RT_USING_HIFI4
+        config RT_USING_HIFI4_FW_BUILTIN
+        bool "hifi4 firmware builtin"
+        default n
+    endif
+
+source "$BSP_DIR/../common/fwmgr/Kconfig"
+source "$RTT_DIR/components/hifi4/rtt/app/Kconfig"
+source "$RTT_DIR/components/hifi4/rtt/rkstudio_comm/Kconfig"
+source "$RTT_DIR/components/rkstudio/rtt/rkstudio_parser/Kconfig"
+endmenu

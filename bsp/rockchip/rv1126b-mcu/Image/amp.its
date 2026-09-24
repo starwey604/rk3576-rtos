@@ -1,0 +1,42 @@
+/* SPDX-License-Identifier: BSD-3-Clause */
+/*
+ * Copyright (c) 2025 Rockchip Electronics Co., Ltd.
+ */
+
+/dts-v1/;
+/ {
+	description = "FIT source file for rockchip AMP";
+	#address-cells = <1>;
+
+	images {
+		hpmcu {
+			description  = "hpmcu";
+			data         = /incbin/("./rtt.bin");
+			type         = "standalone";	// must be "standalone"
+			compression  = "none";
+			arch         = "arm";	 // "arm64" or "arm"
+			load         = <0x48c02000>;
+			udelay       = <10000>;
+			hash {
+				algo = "sha256";
+			};
+		};
+	};
+
+	configurations {
+		default = "conf";
+		conf {
+			description = "Rockchip AMP images";
+			rollback-index = <0x0>;
+			loadables = "hpmcu";
+
+			signature {
+				algo = "sha256,rsa2048";
+				padding = "pss";
+				key-name-hint = "dev";
+				sign-images = "loadables";
+			};
+		};
+	};
+};
+

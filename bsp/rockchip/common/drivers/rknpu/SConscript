@@ -1,0 +1,22 @@
+# RT-Thread building script for component
+Import('RTT_ROOT')
+Import('rtconfig')
+
+from building import *
+
+cwd = GetCurrentDir()
+group = []
+
+if GetDepend(['RT_USING_RKNPU_RTT_DRIVER']):
+    src = Glob('*.c')
+    CPPPATH = [cwd]
+    group = DefineGroup('drv_rknpu', src, depend = ['RT_USING_RKNPU_RTT_DRIVER'], CPPPATH = CPPPATH)
+
+if GetDepend(['RT_USING_RKNPU_DSP_DRIVER']):
+    dsp_path = os.path.join(cwd, 'rknn_dsp_comm')
+    if os.path.exists(dsp_path):
+        src = Glob(os.path.join(dsp_path, '*.c'))
+        CPPPATH = [dsp_path]
+        group = group + DefineGroup('drv_rknpu_dsp', src, depend = ['RT_USING_RKNPU_DSP_DRIVER'], CPPPATH = CPPPATH)
+
+Return('group')

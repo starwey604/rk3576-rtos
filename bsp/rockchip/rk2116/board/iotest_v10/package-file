@@ -1,0 +1,20 @@
+# NAME		Relative path
+#
+#HWDEF		HWDEF
+parameter       parameter.txt
+package-file	package-file
+cpu0_secure_a   ../../Image/tfm_s.img
+cpu0_secure_b   ../../Image/tfm_s.img
+# recovery        ../../Image/recovery.img
+misc            ../../Image/misc.img
+cpu0_os_a       ../../Image/rtt0.img
+cpu0_os_b       ../../Image/rtt0.img
+# dsp0_a          ../../../../../components/hifi4/rtt/dsp_fw/evb_soundbar_demo/dsp0.bin
+# dsp1_a          ../../../../../components/hifi4/rtt/dsp_fw/evb_soundbar_demo/dsp1.bin
+# dsp0_b          ../../../../../components/hifi4/rtt/dsp_fw/evb_soundbar_demo/dsp0.bin
+# dsp1_b          ../../../../../components/hifi4/rtt/dsp_fw/evb_soundbar_demo/dsp1.bin
+# root_a          ../../Image/root.img
+# root_b          ../../Image/root.img
+# rkstudio_a      ../../../../../components/hifi4/rtt/rkstudio_bin/evb_soundbar_demo/evb_soundbar_demo.bin
+# rkstudio_b      ../../../../../components/hifi4/rtt/rkstudio_bin/evb_soundbar_demo/evb_soundbar_demo.bin
+# userdata       ../../Image/userdata.img
