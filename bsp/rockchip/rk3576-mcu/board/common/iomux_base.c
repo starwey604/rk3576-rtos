@@ -83,6 +83,21 @@ RT_WEAK void uart5_m2_iomux_config(void)
 }
 
 /**
+ * @brief  Config iomux m0 for UART5
+ *         LubanCat 3 exposes UART5 on the 40-pin header as
+ *         GPIO3_D4 (UART5_RX_M0) / GPIO3_D5 (UART5_TX_M0).
+ */
+RT_WEAK void uart5_m0_iomux_config(void)
+{
+    HAL_PINCTRL_SetIOMUX(GPIO_BANK3,
+                         GPIO_PIN_D4,
+                         PIN_CONFIG_MUX_FUNC9);
+    HAL_PINCTRL_SetIOMUX(GPIO_BANK3,
+                         GPIO_PIN_D5,
+                         PIN_CONFIG_MUX_FUNC9);
+}
+
+/**
  * @brief  Config iomux m2 for UART7
  */
 RT_WEAK void uart7_m2_iomux_config(void)

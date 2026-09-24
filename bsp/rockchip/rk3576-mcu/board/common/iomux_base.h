@@ -16,6 +16,7 @@ void i2c8_m2_iomux_config(void);
 void peri_s0_iomux_config(void);
 void uart8_m1_iomux_config(void);
 void uart5_m2_iomux_config(void);
+void uart5_m0_iomux_config(void);
 void uart7_m2_iomux_config(void);
 void spi4_m3_iomux_config(void);
 void rt_hw_iomux_config(void);
