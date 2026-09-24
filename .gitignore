@@ -64,3 +64,13 @@ CMakeLists.txt
 cmake-build-debug
 bsp/rockchip/rk3576-64/.config
 bsp/rockchip/rk3576-64/rtconfig
+
+# RK3576 MCU (bus_mcu) RT-Thread build outputs.
+# mk-amp.sh runs `scons` then `mv rtthread.bin Image/rttmcu.bin`, so these are
+# regenerated on every SDK AMP build and must not be tracked.
+bsp/rockchip/rk3576-mcu/rtthread.bin
+bsp/rockchip/rk3576-mcu/rtthread.elf
+bsp/rockchip/rk3576-mcu/rtthread.map
+bsp/rockchip/rk3576-mcu/auto_version.h
+bsp/rockchip/rk3576-mcu/gcc_arm.ld
+bsp/rockchip/rk3576-mcu/Image/
